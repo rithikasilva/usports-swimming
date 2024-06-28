@@ -36,22 +36,3 @@ jobs:
         tag_name: swimming_athlete_rankings
         token: ${{ secrets.GH_TOKEN }}
 
-    - name: Check for Changes
-      id: check_changes
-      run: |
-        if ! git diff --quiet; then
-          echo "Changes detected."
-          echo "changes=true" >> $GITHUB_STATE
-        else
-          echo "No changes detected."
-          echo "changes=false" >> $GITHUB_STATE
-        fi
-    
-    - name: Commit and Push Changes
-      if: steps.check_changes.outputs.changes == 'true'
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add .
-        git commit -m "GH Actions: Updated Data"
-        git push
