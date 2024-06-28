@@ -25,7 +25,7 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         files: swimming_team_rankings.csv
-        tag_name: swimming_team_rankings
+        tag_name: swimming/swimming_team_rankings
         token: ${{ secrets.GH_TOKEN }}
 
     - name: release - swimming_athlete_rankings
@@ -33,7 +33,7 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         files: swimming_athlete_rankings.csv
-        tag_name: swimming_athlete_rankings
+        tag_name: swimming/swimming_athlete_rankings
         token: ${{ secrets.GH_TOKEN }}
 
     - name: Check for Changes
